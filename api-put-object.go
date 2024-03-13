@@ -29,8 +29,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/s3utils"
+	"github.com/sandwich-go/minio-go/pkg/encrypt"
+	"github.com/sandwich-go/minio-go/pkg/s3utils"
 	"golang.org/x/net/http/httpguts"
 )
 
@@ -96,27 +96,27 @@ type PutObjectOptions struct {
 	ConcurrentStreamParts bool
 	Internal              AdvancedPutOptions
 
-	customHeaders http.Header
+	CustomHeaders http.Header
 }
 
 // SetMatchETag if etag matches while PUT MinIO returns an error
 // this is a MinIO specific extension to support optimistic locking
 // semantics.
 func (opts *PutObjectOptions) SetMatchETag(etag string) {
-	if opts.customHeaders == nil {
-		opts.customHeaders = http.Header{}
+	if opts.CustomHeaders == nil {
+		opts.CustomHeaders = http.Header{}
 	}
-	opts.customHeaders.Set("If-Match", "\""+etag+"\"")
+	opts.CustomHeaders.Set("If-Match", "\""+etag+"\"")
 }
 
 // SetMatchETagExcept if etag does not match while PUT MinIO returns an
 // error this is a MinIO specific extension to support optimistic locking
 // semantics.
 func (opts *PutObjectOptions) SetMatchETagExcept(etag string) {
-	if opts.customHeaders == nil {
-		opts.customHeaders = http.Header{}
+	if opts.CustomHeaders == nil {
+		opts.CustomHeaders = http.Header{}
 	}
-	opts.customHeaders.Set("If-None-Match", "\""+etag+"\"")
+	opts.CustomHeaders.Set("If-None-Match", "\""+etag+"\"")
 }
 
 // getNumThreads - gets the number of threads to be used in the multipart
@@ -220,7 +220,7 @@ func (opts PutObjectOptions) Header() (header http.Header) {
 	}
 
 	// set any other additional custom headers.
-	for k, v := range opts.customHeaders {
+	for k, v := range opts.CustomHeaders {
 		header[k] = v
 	}
 

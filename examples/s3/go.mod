@@ -4,9 +4,9 @@ go 1.21
 
 require (
 	github.com/cheggaaa/pb v1.0.29
-	github.com/minio/minio-go/v7 v7.0.49
 	github.com/minio/sio v0.3.0
 	golang.org/x/crypto v0.19.0
+
 )
 
 require (
@@ -16,4 +16,3 @@ require (
 	github.com/rivo/uniseg v0.4.4 // indirect
 )
 
-replace github.com/minio/minio-go/v7 v7.0.49 => ../..

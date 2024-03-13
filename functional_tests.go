@@ -51,11 +51,11 @@ import (
 	"github.com/google/uuid"
 	"github.com/minio/sha256-simd"
 
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/notification"
-	"github.com/minio/minio-go/v7/pkg/tags"
+	"github.com/sandwich-go/minio-go"
+	"github.com/sandwich-go/minio-go/pkg/credentials"
+	"github.com/sandwich-go/minio-go/pkg/encrypt"
+	"github.com/sandwich-go/minio-go/pkg/notification"
+	"github.com/sandwich-go/minio-go/pkg/tags"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyz01234569"
