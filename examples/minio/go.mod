@@ -2,7 +2,7 @@ module github.com/minio/minio-go/examples/minio
 
 go 1.21
 
-require github.com/sandwich-go/minio-go v7.0.49
+require github.com/sandwich-go/minio-go v1.0.0-beta.1
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
@@ -23,4 +23,4 @@ require (
 	gopkg.in/ini.v1 v1.67.0 // indirect
 )
 
-replace github.com/sandwich-go/minio-go v7.0.49 => ../..
+replace github.com/sandwich-go/minio-go v1.0.0-beta.1 => ../..
